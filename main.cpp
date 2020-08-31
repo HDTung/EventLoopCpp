@@ -38,5 +38,12 @@ int main() {
     workerThread1.ExitThread();
     workerThread2.ExitThread();
 
+#pragma omp parallel
+    {
+#pragma omp for
+        for(int n=0; n<1000; ++n) printf(" %d", n);
+    }
+    printf(".\n");
+
     return 0;
 }
